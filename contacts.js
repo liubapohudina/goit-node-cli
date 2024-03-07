@@ -10,20 +10,17 @@ const __dirname = dirname(__filename);
 const contactsPath = path.join(__dirname, "db", "contacts.json");
 
 async function listContacts() {
-  console.log('list')
     const contacts = await fs.readFile(contactsPath);
     return JSON.parse(contacts);
 }
 
 async function getContactById(contactId) {
-  console.log("get")
   const contacts = await listContacts();
   const selectContacts = contacts.filter(contact => contactId === contact.id);
   return selectContacts || null;
 }
 
 async function removeContact(contactId) {
-  console.log("remove")
   let existContacts = await listContacts();
   const removeContactIndex = existContacts.findIndex(contact => contact.id === contactId);
   if (removeContactIndex === -1) {
@@ -35,7 +32,6 @@ async function removeContact(contactId) {
 }
 
 async function addContact(name, email, phone) {
-  console.log("add")
   const existContacts = await listContacts();
   const newContact = { id: nanoid(), name, email, phone };
   existContacts.push(newContact);
