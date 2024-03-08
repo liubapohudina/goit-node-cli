@@ -16,7 +16,7 @@ async function listContacts() {
 
 async function getContactById(contactId) {
   const contacts = await listContacts();
-  const selectContacts = contacts.filter(contact => contactId === contact.id);
+  const [selectContacts] = contacts.filter(contact => contactId === contact.id);
   return selectContacts || null;
 }
 

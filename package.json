@@ -14,7 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^12.0.0",
-    "detect-file-encoding-and-language": "^2.4.0",
     "nanoid": "^5.0.6"
   },
   "devDependencies": {
